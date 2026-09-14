@@ -112,7 +112,7 @@
   .wordmark { font-size: 1.85rem; font-weight: 500; letter-spacing: -0.022em; line-height: 1; }
   .wordmark span { display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.34em; color: var(--light-peri); }
 
-  .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4rem; align-items: end; padding-block: clamp(3rem, 8vw, 7rem) clamp(3.5rem, 7vw, 6rem); }
+  .hero { display: grid; grid-template-columns: 1.45fr 0.55fr; gap: 4rem; align-items: end; padding-block: clamp(3rem, 8vw, 7rem) clamp(3.5rem, 7vw, 6rem); }
   .hero-shapes { justify-self: end; --cell: clamp(3.4rem, 7vw, 5.6rem); }
   @media (max-width: 52rem) {
     .hero { grid-template-columns: 1fr; gap: 2.75rem; align-items: start; }
@@ -146,6 +146,12 @@
   .tier p { max-width: none; color: var(--text-soft); }
   .tier .mark { --cell: 1.35rem; --mark-base: var(--text); }
 
+  .outcomes { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.45rem 1.1rem;
+              font-variation-settings: "opsz" 40; font-size: clamp(1.02rem, 1.4vw, 1.18rem); font-weight: 700;
+              letter-spacing: -0.014em; color: var(--on-ink); }
+  .outcomes li { display: flex; align-items: center; gap: 1.1rem; }
+  .outcomes li + li::before { content: ""; width: 0.32rem; height: 0.32rem; border-radius: 50%; background: var(--periwinkle); }
+
   .worked { display: flex; flex-direction: column; gap: 0.9rem; padding-top: 1.6rem; border-top: 1px solid var(--rule); }
   .worked ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem;
                font-variation-settings: "opsz" 40; font-size: clamp(1.02rem, 1.5vw, 1.24rem); font-weight: 700;
@@ -178,14 +184,42 @@
   <div class="wrap hero">
     <div class="stack">
       <p class="label">Brand strategy and consumer insights</p>
-      <h1>Twenty years of insight work, delivered in four working days.</h1>
-      <p class="lead">You work directly with a strategist who has spent two decades finding what actually drives people's choices. What has changed is how quickly that work can run, and how affordable it has become.</p>
+      <h1>Know what your customers actually want, and what to do about it.</h1>
+      <p class="lead">Real consumer research and a strategy built on it, in four working days. Directed start to finish by a strategist with twenty years in the work, and for a good deal less than research like this used to cost.</p>
+      <ul class="outcomes">
+        <li>Which customers to go after</li>
+        <li>What to say to them</li>
+        <li>Where to spend first</li>
+      </ul>
     </div>
     <span class="mark full hero-shapes" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
   </div>
 </section>
 
 <section>
+  <div class="wrap stack-wide">
+    <div class="stack">
+      <p class="label">What you get</p>
+      <h2>One presentation, and the evidence underneath it.</h2>
+    </div>
+    <div class="cols">
+      <div class="stack">
+        <h3>A strategy that moves the business</h3>
+        <p>A recommendation inside an organizing framework, so your stakeholders can see where the business sits, the idea that moves it forward, and how each action connects to the outcome in your brief.</p>
+      </div>
+      <div class="stack">
+        <h3>Insight you have not heard before</h3>
+        <p>Findings that name the motivation underneath what people say. Category givens are useful context and they are labeled as context, so the insights stay insights.</p>
+      </div>
+      <div class="stack">
+        <h3>Everything it rests on</h3>
+        <p>A PDF for presenting and an editable deck your team can lift slides from. The discussion guide, the screener and the panel come with it, and every claim traces to something you can read.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band-alt">
   <div class="wrap bio">
     <div class="stack">
       <p class="label">The practice</p>
@@ -204,29 +238,6 @@
           <li>Amazon</li><li>Bloomberg</li><li>Verizon</li><li>TD Bank</li>
         </ul>
         <p class="note">Across twenty years, at agencies and innovation consultancies, inside several of these companies, and since 2021 through BABAHALA Group.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="band-alt">
-  <div class="wrap stack-wide">
-    <div class="stack">
-      <p class="label">What you get</p>
-      <h2>One presentation, and the evidence underneath it.</h2>
-    </div>
-    <div class="cols">
-      <div class="stack">
-        <h3>A strategy that moves the business</h3>
-        <p>A recommendation inside an organizing framework, so your stakeholders can see where the business sits, the idea that moves it forward, and how each action connects to the outcome in your brief.</p>
-      </div>
-      <div class="stack">
-        <h3>Insight you have not heard before</h3>
-        <p>Findings that name the motivation underneath what people say. Category givens are useful context and they are labeled as context, so the insights stay insights.</p>
-      </div>
-      <div class="stack">
-        <h3>Everything it rests on</h3>
-        <p>A PDF for presenting and an editable deck your team can lift slides from. The discussion guide, the screener and the panel come with it, and every claim traces to something you can read.</p>
       </div>
     </div>
   </div>
@@ -275,9 +286,9 @@
 <section>
   <div class="wrap stack-wide">
     <div class="stack">
-      <p class="label">How it stays honest</p>
-      <h2>Twenty years of knowing where research goes wrong.</h2>
-      <p class="lead">Every study is audited against the failure modes worth worrying about, and the results go in the deliverable.</p>
+      <p class="label">Why the work holds up</p>
+      <h2>Experience is knowing what good looks like, and making sure every study gets there.</h2>
+      <p class="lead">Twenty years teaches you the handful of places research goes soft, and how to keep it from happening. Every study is checked against those points before it reaches you, and the results go in the deliverable.</p>
     </div>
     <div class="checks">
       <div class="check"><i></i><p><strong>Depth</strong>Whether the moderator probed a must-cover topic or accepted the easy answer and moved on.</p></div>
