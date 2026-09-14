@@ -1,0 +1,343 @@
+<title>BABAHALA Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<style>
+  :root {
+    --ink: #16171F;
+    --paper: #F4F1EC;
+    --white: #FFFFFF;
+    --periwinkle: #6E76F1;
+    --deep: #464CC4;
+    --light-peri: #A6AAF8;
+    --apricot: #F2985C;
+    --sage: #74B392;
+    --blush: #EC9CB4;
+
+    --ground: var(--white);
+    --ground-alt: var(--paper);
+    --text: var(--ink);
+    --text-soft: #43444C;
+    --text-muted: #6B6C74;
+    --rule: #DFDAD1;
+    --label: var(--deep);
+    --on-ink: #FFFFFF;
+    --on-ink-soft: #C9C9D1;
+    --on-ink-muted: #8A8B93;
+    --card: var(--paper);
+    --card-line: transparent;
+
+    --measure: 34rem;
+    --display: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #101119;
+      --ground-alt: #191A23;
+      --text: #F2F1EE;
+      --text-soft: #C9C9D1;
+      --text-muted: #8A8B93;
+      --rule: #2C2D38;
+      --label: var(--light-peri);
+      --card: #191A23;
+      --card-line: #2C2D38;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #101119;
+    --ground-alt: #191A23;
+    --text: #F2F1EE;
+    --text-soft: #C9C9D1;
+    --text-muted: #8A8B93;
+    --rule: #2C2D38;
+    --label: var(--light-peri);
+    --card: #191A23;
+    --card-line: #2C2D38;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--text);
+    font-family: var(--display);
+    font-variation-settings: "opsz" 14;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--periwinkle);
+    outline-offset: 3px;
+  }
+
+  .wrap { width: min(72rem, 100% - 3rem); margin-inline: auto; }
+  @media (max-width: 40rem) { .wrap { width: min(72rem, 100% - 2.25rem); } }
+
+  section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
+  .band-ink { background: var(--ink); color: var(--on-ink); }
+  .band-alt { background: var(--ground-alt); }
+
+  h1, h2, h3 { font-variation-settings: "opsz" 40; text-wrap: balance; margin: 0; letter-spacing: -0.028em; font-weight: 700; }
+  h1 { font-size: clamp(2.35rem, 6vw, 4.15rem); line-height: 1.06; }
+  h2 { font-size: clamp(1.75rem, 3.4vw, 2.6rem); line-height: 1.12; }
+  h3 { font-size: 1.22rem; line-height: 1.25; letter-spacing: -0.018em; }
+  p { margin: 0; max-width: var(--measure); }
+  .lead { font-size: clamp(1.1rem, 1.6vw, 1.32rem); line-height: 1.5; color: var(--text-soft); }
+  .band-ink .lead { color: var(--on-ink-soft); }
+
+  .label {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--label); margin: 0;
+  }
+  .band-ink .label { color: var(--light-peri); }
+
+  /* The mark: circle, rounded square, arch, quarter circle. Rows sit tighter than
+     columns so each circle pairs with the arch beneath it and it reads as people. */
+  .mark { display: grid; gap: calc(var(--cell) * 0.07) calc(var(--cell) * 0.15);
+          grid-template-columns: repeat(2, var(--cell)); grid-template-rows: repeat(2, var(--cell)); }
+  .mark i { display: block; background: var(--mark-base, currentColor); }
+  .mark i:nth-child(1) { background: var(--periwinkle); border-radius: 50%; }
+  .mark i:nth-child(2) { border-radius: 29%; }
+  .mark i:nth-child(3) { border-radius: 50% 50% 0 0; }
+  .mark i:nth-child(4) { border-radius: 0 100% 0 0; }
+  .mark.full i:nth-child(2) { background: var(--apricot); }
+  .mark.full i:nth-child(3) { background: var(--sage); }
+  .mark.full i:nth-child(4) { background: var(--blush); }
+
+  header { padding-block: 1.9rem; }
+  .lockup { display: flex; align-items: flex-start; gap: 0.7rem; text-decoration: none; }
+  .lockup .mark { --cell: 1.05rem; --mark-base: var(--on-ink); margin-top: 0.3rem; }
+  .wordmark { font-size: 1.85rem; font-weight: 500; letter-spacing: -0.022em; line-height: 1; }
+  .wordmark span { display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.34em; color: var(--light-peri); }
+
+  .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4rem; align-items: end; padding-block: clamp(3rem, 8vw, 7rem) clamp(3.5rem, 7vw, 6rem); }
+  .hero-shapes { justify-self: end; --cell: clamp(3.4rem, 7vw, 5.6rem); }
+  @media (max-width: 52rem) {
+    .hero { grid-template-columns: 1fr; gap: 2.75rem; align-items: start; }
+    .hero-shapes { justify-self: start; }
+  }
+
+  .stack { display: flex; flex-direction: column; gap: 1.15rem; }
+  .stack-wide { display: flex; flex-direction: column; gap: 2.75rem; }
+
+  .cols { display: grid; gap: 2.25rem 2.5rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+  .cols p { max-width: none; }
+
+  .days { display: grid; gap: 1px; background: var(--rule); border-block: 1px solid var(--rule); }
+  .day { background: var(--ground); display: grid; grid-template-columns: 7.5rem 1fr; gap: 2rem; padding-block: 1.6rem; }
+  .band-alt .day { background: var(--ground-alt); }
+  .day .when { font-weight: 700; letter-spacing: -0.015em; }
+  .day p { color: var(--text-soft); }
+  @media (max-width: 40rem) { .day { grid-template-columns: 1fr; gap: 0.35rem; } }
+
+  .checks { display: grid; gap: 1.6rem 2.5rem; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
+  .check { display: grid; grid-template-columns: auto 1fr; gap: 0.95rem; align-items: start; }
+  .check i { width: 0.7rem; height: 0.7rem; border-radius: 50%; background: var(--periwinkle); margin-top: 0.52rem; }
+  .check p { max-width: none; color: var(--text-soft); }
+  .check strong { display: block; font-weight: 700; letter-spacing: -0.012em; color: var(--text); }
+
+  .limits { border-left: 3px solid var(--periwinkle); padding-left: 1.75rem; display: flex; flex-direction: column; gap: 1rem; }
+  .limits p { color: var(--on-ink-soft); }
+
+  .tiers { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
+  .tier { background: var(--card); border: 1px solid var(--card-line); border-radius: 1.1rem; padding: 2rem 1.9rem; display: flex; flex-direction: column; gap: 0.85rem; }
+  .tier p { max-width: none; color: var(--text-soft); }
+  .tier .mark { --cell: 1.35rem; --mark-base: var(--text); }
+
+  .worked { display: flex; flex-direction: column; gap: 0.9rem; padding-top: 1.6rem; border-top: 1px solid var(--rule); }
+  .worked ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem;
+               font-variation-settings: "opsz" 40; font-size: clamp(1.02rem, 1.5vw, 1.24rem); font-weight: 700;
+               letter-spacing: -0.016em; }
+  .worked li { display: flex; align-items: center; gap: 0.9rem; }
+  .worked li + li::before { content: ""; width: 0.3rem; height: 0.3rem; border-radius: 50%; background: var(--periwinkle); }
+  .worked .note { font-size: 0.95rem; color: var(--text-muted); max-width: var(--measure); }
+
+  .bio { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 3.5rem; align-items: start; }
+  @media (max-width: 52rem) { .bio { grid-template-columns: 1fr; gap: 1.75rem; } }
+
+  .contact a.mailto { font-variation-settings: "opsz" 40; font-size: clamp(1.4rem, 3vw, 2.1rem); font-weight: 700; letter-spacing: -0.025em; color: var(--light-peri); text-decoration-thickness: 2px; text-underline-offset: 0.18em; }
+  footer { padding-block: 2.25rem; border-top: 1px solid var(--rule); color: var(--text-muted); font-size: 0.9rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; justify-content: space-between; align-items: center; }
+  footer .mark { --cell: 0.6rem; --mark-base: var(--text); }
+  footer .who { display: flex; align-items: center; gap: 0.6rem; letter-spacing: 0.06em; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<header class="band-ink">
+  <div class="wrap">
+    <a class="lockup" href="#top">
+      <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="wordmark">babahala<span>GROUP</span></span>
+    </a>
+  </div>
+</header>
+
+<section id="top" class="band-ink" style="padding-block:0;">
+  <div class="wrap hero">
+    <div class="stack">
+      <p class="label">Brand strategy and consumer insights</p>
+      <h1>Twenty years of insight work, delivered in four working days.</h1>
+      <p class="lead">You work directly with a strategist who has spent two decades finding what actually drives people's choices. What has changed is how quickly that work can run, and how affordable it has become.</p>
+    </div>
+    <span class="mark full hero-shapes" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  </div>
+</section>
+
+<section>
+  <div class="wrap bio">
+    <div class="stack">
+      <p class="label">The practice</p>
+      <h2>Every study is directed by a principal strategist, start to finish.</h2>
+    </div>
+    <div class="stack">
+      <p class="lead">Twenty years of turning consumer research into strategy that grows a business, across spirits and beer, food and beverage, retail, technology and financial services.</p>
+      <p>That experience runs from ethnography, sitting in people's homes and following them through their markets, through inventing products at an innovation consultancy, running innovation at a fast-growing food brand as it moved from startup to category leader, building a flagship retail experience, and leading commercial strategy inside a bank. The work has been run from the agency side and commissioned from the client side.</p>
+      <p>That is the part worth hiring. Knowing which finding is a real insight and which one everybody in the category already knows. Knowing when a respondent is telling a story about themselves. Knowing what a recommendation has to look like to survive a room full of stakeholders.</p>
+      <p>No study is handed to a junior team, and no part of one is left to run on its own. The screener and the discussion guide are written here, every transcript is read here, and your material is handled by one person. BABAHALA Group is led by Brian Armentrout, Principal Strategist.</p>
+      <div class="worked">
+        <p class="label">Work has included</p>
+        <ul>
+          <li>Suntory Global Spirits</li><li>Diageo</li><li>AB InBev</li><li>Boston Beer</li>
+          <li>PepsiCo</li><li>Chobani</li><li>Danone</li><li>Nike</li>
+          <li>Amazon</li><li>Bloomberg</li><li>Verizon</li><li>TD Bank</li>
+        </ul>
+        <p class="note">Across twenty years, at agencies and innovation consultancies, inside several of these companies, and since 2021 through BABAHALA Group.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band-alt">
+  <div class="wrap stack-wide">
+    <div class="stack">
+      <p class="label">What you get</p>
+      <h2>One presentation, and the evidence underneath it.</h2>
+    </div>
+    <div class="cols">
+      <div class="stack">
+        <h3>A strategy that moves the business</h3>
+        <p>A recommendation inside an organizing framework, so your stakeholders can see where the business sits, the idea that moves it forward, and how each action connects to the outcome in your brief.</p>
+      </div>
+      <div class="stack">
+        <h3>Insight you have not heard before</h3>
+        <p>Findings that name the motivation underneath what people say. Category givens are useful context and they are labeled as context, so the insights stay insights.</p>
+      </div>
+      <div class="stack">
+        <h3>Everything it rests on</h3>
+        <p>A PDF for presenting and an editable deck your team can lift slides from. The discussion guide, the screener and the panel come with it, and every claim traces to something you can read.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap stack-wide">
+    <div class="stack">
+      <p class="label">The four days</p>
+      <h2>Approved on a Monday, presented on a Friday.</h2>
+      <p class="lead">A real sequence, and you sit at two points in it.</p>
+    </div>
+    <div class="days">
+      <div class="day"><span class="when">Day one</span><p>The discussion guide is written and the scan of current public evidence runs. You review the guide.</p></div>
+      <div class="day"><span class="when">Day two</span><p>The panel is built and you review who is in it. Fieldwork runs overnight.</p></div>
+      <div class="day"><span class="when">Day three</span><p>Transcripts are coded, themes and insights are built, and the market scan is finished.</p></div>
+      <div class="day"><span class="when">Day four</span><p>The strategy is written, put through review rounds, and delivered as a presentation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band-alt">
+  <div class="wrap stack-wide">
+    <div class="stack">
+      <p class="label">How it runs this fast</p>
+      <h2>Synthetic panels, built from real, current evidence.</h2>
+      <p class="lead">The speed comes from the panel. The thinking is still done the long way.</p>
+    </div>
+    <div class="cols">
+      <div class="stack">
+        <h3>Real people, anonymized</h3>
+        <p>Each respondent starts from a real, anonymized US Census household record, drawn in proportion to how common people like them are among the buyers you screen for. Your buyers, rather than the general population.</p>
+      </div>
+      <div class="stack">
+        <h3>Current attitudes, with sources</h3>
+        <p>Attitudes come from a scan of current public evidence, run fresh for every study and weighted to the past twelve months. Each one carries the source it came from and the date it was retrieved.</p>
+      </div>
+      <div class="stack">
+        <h3>Interviewed, not surveyed</h3>
+        <p>A moderator interviews each respondent for ninety minutes and keeps probing past the first answer, because the first answer a person gives is usually a rationalization. A stated reason never counts as a finding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap stack-wide">
+    <div class="stack">
+      <p class="label">How it stays honest</p>
+      <h2>Twenty years of knowing where research goes wrong.</h2>
+      <p class="lead">Every study is audited against the failure modes worth worrying about, and the results go in the deliverable.</p>
+    </div>
+    <div class="checks">
+      <div class="check"><i></i><p><strong>Depth</strong>Whether the moderator probed a must-cover topic or accepted the easy answer and moved on.</p></div>
+      <div class="check"><i></i><p><strong>Agreement</strong>Whether respondents pushed back on the moderator's framing or simply adopted it.</p></div>
+      <div class="check"><i></i><p><strong>Invented depth</strong>Whether a motivation a respondent stated rests on something real in their profile.</p></div>
+      <div class="check"><i></i><p><strong>Traceability</strong>Whether every claim in the analysis points at an interview turn that says it.</p></div>
+      <div class="check"><i></i><p><strong>Stability</strong>A share of interviews is rerun, to confirm the same people hold the same positions.</p></div>
+      <div class="check"><i></i><p><strong>Composition</strong>How the panel that was built compares against the screener it was built to meet.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band-ink">
+  <div class="wrap stack-wide">
+    <div class="stack">
+      <p class="label">Straight about the method</p>
+      <h2>Directional, and it says so on the page.</h2>
+    </div>
+    <div class="limits">
+      <p>This is qualitative work, and it does what excellent qualitative work does. It tells you why people choose what they choose, and what would change their minds. It gives you a direction and the reasoning behind it.</p>
+      <p>Synthetic respondents model patterns of reasoning rather than individual people, so findings are directional and are never presented as projectable. Before a major spend, confirm the direction with a small live check.</p>
+      <p>Every deliverable states its method, its panel, its sources and its limits, right where your stakeholders can read them. Work that is straight about what it is tends to get trusted with the next decision.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap stack-wide">
+    <div class="stack">
+      <p class="label">Who it is for</p>
+      <h2>Two kinds of client, one standard of work.</h2>
+    </div>
+    <div class="tiers">
+      <div class="tier">
+        <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <h3>Insights and brand teams</h3>
+        <p>For teams who commission research for a living and need an answer inside the planning cycle rather than after it. You will recognize the screener, the guide and the coding, because they are the ones you would have written.</p>
+      </div>
+      <div class="tier">
+        <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <h3>Owner-led businesses</h3>
+        <p>For a restaurant group, a regional retailer, a local bank. Work at this depth has been out of reach for businesses this size, and it is not any more. You do not need to know what a discussion guide is to brief it or to use what comes back.</p>
+      </div>
+    </div>
+    <p class="lead">Each study is scoped to the decision in front of you, and it costs a good deal less than research at this depth used to. Ask, and you will have a number in the first reply.</p>
+  </div>
+</section>
+
+<section class="band-ink contact">
+  <div class="wrap stack">
+    <p class="label">Start a conversation</p>
+    <h2>Send the problem, not a brief.</h2>
+    <p class="lead">A paragraph on the decision you are trying to make is plenty to start with. You will get back what the work would look like, what it would cost, and an honest read on whether this is the right instrument for your question.</p>
+    <p><a class="mailto" href="mailto:hello@babahala.com">hello@babahala.com</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="who"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>BABAHALA GROUP</span>
+    <span>Independent brand strategy and consumer insights. New York.</span>
+  </div>
+</footer>
