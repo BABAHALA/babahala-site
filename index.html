@@ -146,6 +146,26 @@
   .tier p { max-width: none; color: var(--text-soft); }
   .tier .mark { --cell: 1.35rem; --mark-base: var(--text); }
 
+  .btn { display: inline-flex; align-items: center; gap: 0.7rem; align-self: flex-start;
+         background: var(--periwinkle); color: var(--ink); text-decoration: none;
+         font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em;
+         padding: 0.85rem 1.5rem; border-radius: 999px;
+         transition: background 120ms ease, transform 120ms ease; }
+  .btn::after { content: ""; width: 0.52rem; height: 0.52rem; border-radius: 0 100% 0 0; background: var(--ink); opacity: 0.5; }
+  .btn:hover { background: var(--light-peri); }
+  .btn-sm { padding: 0.6rem 1.15rem; font-size: 0.92rem; }
+  @media (prefers-reduced-motion: no-preference) { .btn:active { transform: translateY(1px); } }
+
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  @media (max-width: 34rem) { .btn-sm { display: none; } }
+
+  .next { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 2rem;
+          padding-top: 2.5rem; border-top: 1px solid var(--rule); }
+  .next p { max-width: 38rem; }
+  .band-ink .next { border-color: rgba(255,255,255,0.14); }
+  /* The schedule already closes with a rule, so a second one right under it reads as an empty row. */
+  .days + .next { border-top: 0; padding-top: 0; }
+
   .outcomes { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.45rem 1.1rem;
               font-variation-settings: "opsz" 40; font-size: clamp(1.02rem, 1.4vw, 1.18rem); font-weight: 700;
               letter-spacing: -0.014em; color: var(--on-ink); }
@@ -177,6 +197,7 @@
       <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
       <span class="wordmark">babahala<span>GROUP</span></span>
     </a>
+    <a class="btn btn-sm" href="mailto:hello@babahala.com">Start a conversation</a>
   </div>
 </header>
 
@@ -191,6 +212,7 @@
         <li>What to say to them</li>
         <li>Where to spend first</li>
       </ul>
+      <a class="btn" href="mailto:hello@babahala.com">Start a conversation</a>
     </div>
     <span class="mark full hero-shapes" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
   </div>
@@ -255,6 +277,10 @@
       <div class="day"><span class="when">Day two</span><p>The panel is built and you review who is in it. Fieldwork runs overnight.</p></div>
       <div class="day"><span class="when">Day three</span><p>Transcripts are coded, themes and insights are built, and the market scan is finished.</p></div>
       <div class="day"><span class="when">Day four</span><p>The strategy is written, put through review rounds, and delivered as a presentation.</p></div>
+    </div>
+    <div class="next">
+      <p class="lead">Have a decision coming up? Send it over and you will get a straight read on how this would work for it.</p>
+      <a class="btn" href="mailto:hello@babahala.com">Send your question</a>
     </div>
   </div>
 </section>
@@ -333,7 +359,10 @@
         <p>For a restaurant group, a regional retailer, a local bank. Work at this depth has been out of reach for businesses this size, and it is not any more. You do not need to know what a discussion guide is to brief it or to use what comes back.</p>
       </div>
     </div>
-    <p class="lead">Each study is scoped to the decision in front of you, and it costs a good deal less than research at this depth used to. Ask, and you will have a number in the first reply.</p>
+    <div class="next">
+      <p class="lead">Each study is scoped to the decision in front of you, and it costs a good deal less than research at this depth used to. Ask, and you will have a number in the first reply.</p>
+      <a class="btn" href="mailto:hello@babahala.com">Ask what it would cost</a>
+    </div>
   </div>
 </section>
 
@@ -343,6 +372,7 @@
     <h2>Send the problem, not a brief.</h2>
     <p class="lead">A paragraph on the decision you are trying to make is plenty to start with. You will get back what the work would look like, what it would cost, and an honest read on whether this is the right instrument for your question.</p>
     <p><a class="mailto" href="mailto:hello@babahala.com">hello@babahala.com</a></p>
+    <p style="margin-top:0.6rem;"><a class="btn" href="mailto:hello@babahala.com">Email BABAHALA Group</a></p>
   </div>
 </section>
 
