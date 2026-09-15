@@ -12,5 +12,7 @@ shape mark with its tightened spacing. The site and the client deliverables
 are meant to read as one firm, so a change to one should be considered
 against the other.
 
-`robots.txt` currently asks search engines to stay away. Remove it when the
-site is ready to be found.
+The site launched on 2026-09-14. There is no `robots.txt`, so search engines
+are free to index it. `og-image.png` is what a link to the site looks like
+when it is shared; it is generated from the hero, so if the headline changes
+the image should be regenerated to match.

@@ -1,3 +1,0 @@
-# The site is not ready to be found yet. This comes off at launch.
-User-agent: *
-Disallow: /
