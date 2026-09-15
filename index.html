@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BABAHALA Group</title>
 <meta name="description" content="Consumer research and brand strategy in four working days. Know what your customers actually want, and what to do about it.">
 <link rel="canonical" href="https://babahala.com/">
@@ -195,6 +200,13 @@
               letter-spacing: -0.014em; color: var(--on-ink); }
   .outcomes li { display: flex; align-items: center; gap: 1.1rem; }
   .outcomes li + li::before { content: ""; width: 0.32rem; height: 0.32rem; border-radius: 50%; background: var(--periwinkle); }
+  /* On a narrow screen three outcomes on one line wrap into a stray leading dot. They stack
+     instead, and every item takes a dot so the column reads as a set. */
+  @media (max-width: 40rem) {
+    .outcomes { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+    .outcomes li { gap: 0.85rem; }
+    .outcomes li::before { content: ""; width: 0.32rem; height: 0.32rem; border-radius: 50%; background: var(--periwinkle); flex: none; }
+  }
 
   .worked { display: flex; flex-direction: column; gap: 0.9rem; padding-top: 1.6rem; border-top: 1px solid var(--rule); }
   .worked ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem;
@@ -214,7 +226,8 @@
   footer .who { display: flex; align-items: center; gap: 0.6rem; letter-spacing: 0.06em; }
   @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 </style>
-
+</head>
+<body>
 <header class="band-ink">
   <div class="wrap">
     <a class="lockup" href="#top">
@@ -405,3 +418,5 @@
     <span>Independent brand strategy and consumer insights. New York.</span>
   </div>
 </footer>
+</body>
+</html>
