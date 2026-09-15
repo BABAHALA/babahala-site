@@ -111,10 +111,18 @@
   .mark.full i:nth-child(4) { background: var(--blush); }
 
   header { position: sticky; top: 0; z-index: 20; padding-block: 1.15rem; }
-  .lockup { display: flex; align-items: flex-start; gap: 0.7rem; text-decoration: none; }
-  .lockup .mark { --cell: 1.05rem; --mark-base: var(--on-ink); margin-top: 0.3rem; }
-  .wordmark { font-size: 1.85rem; font-weight: 500; letter-spacing: -0.022em; line-height: 1; }
-  .wordmark span { display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.34em; color: var(--light-peri); }
+  /* The wordmark aligns to the shapes by its letters, not by its line boxes: the top of the b sits
+     on the top of the mark and the baseline of GROUP sits on its bottom. The two trim values are the
+     leading above and below those glyphs, measured off DM Sans at these sizes. The mark's own
+     spacing is untouched. */
+  .lockup { display: flex; align-items: flex-start; gap: 0.7rem; text-decoration: none;
+            --cell: 1.05rem; --trim-top: 0.231rem; --trim-bottom: 0.084rem; }
+  .lockup .mark { --mark-base: var(--on-ink); }
+  .wordmark { display: flex; flex-direction: column; justify-content: space-between;
+              height: calc(var(--cell) * 2.07 + var(--trim-top) + var(--trim-bottom));
+              margin-top: calc(var(--trim-top) * -1); }
+  .wordmark .name { font-size: 1.85rem; font-weight: 500; letter-spacing: -0.022em; line-height: 1; }
+  .wordmark .sub { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.34em; line-height: 1; color: var(--light-peri); }
 
   .hero { display: grid; grid-template-columns: 1.45fr 0.55fr; gap: 4rem; align-items: end; padding-block: clamp(3rem, 8vw, 7rem) clamp(3.5rem, 7vw, 6rem); }
   .hero-shapes { justify-self: end; --cell: clamp(3.4rem, 7vw, 5.6rem); }
@@ -199,7 +207,7 @@
   <div class="wrap">
     <a class="lockup" href="#top">
       <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-      <span class="wordmark">babahala<span>GROUP</span></span>
+      <span class="wordmark"><span class="name">babahala</span><span class="sub">GROUP</span></span>
     </a>
     <a class="btn btn-sm" href="mailto:hello@babahala.com">Start a conversation</a>
   </div>
