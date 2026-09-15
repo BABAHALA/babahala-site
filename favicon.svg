@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255 255" role="img" aria-label="BABAHALA Group">
+  <!-- The mark at its own proportions: a 100 unit cell, rows 7 apart and columns 15 apart, so each
+       circle pairs with the arch below it and the four read as people. Centered in a square box. -->
+  <circle cx="70" cy="74" r="50" fill="#6E76F1"/>
+  <rect x="135" y="24" width="100" height="100" rx="29" fill="#F2985C"/>
+  <path d="M 20 231 L 20 181 A 50 50 0 0 1 120 181 L 120 231 Z" fill="#74B392"/>
+  <path d="M 135 231 L 135 131 A 100 100 0 0 1 235 231 Z" fill="#EC9CB4"/>
+</svg>
