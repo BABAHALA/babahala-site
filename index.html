@@ -128,6 +128,7 @@
   .mark.full i:nth-child(4) { background: var(--blush); }
 
   header { position: sticky; top: 0; z-index: 20; padding-block: 1.15rem; }
+  section[id] { scroll-margin-top: 5.5rem; }
   /* The wordmark aligns to the shapes by its letters, not by its line boxes: the top of the b sits
      on the top of the mark and the baseline of GROUP sits on its bottom. The two trim values are the
      leading above and below those glyphs, measured off DM Sans at these sizes. The mark's own
@@ -188,6 +189,38 @@
   header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
   @media (max-width: 34rem) { .btn-sm { display: none; } }
 
+  /* Section links in the header. They hide on small screens, where the page is short enough to scroll
+     and the lockup plus the button already fill the bar. */
+  .nav { display: flex; gap: 1.6rem; font-size: 0.95rem; font-weight: 500; }
+  .nav a { color: var(--on-ink-soft); text-decoration: none; transition: color 120ms ease; }
+  .nav a:hover { color: var(--on-ink); }
+  @media (max-width: 60rem) { .nav { display: none; } }
+
+  .asks { display: grid; gap: 1.5rem; grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 44rem) { .asks { grid-template-columns: 1fr; } }
+  .ask { background: var(--card); border: 1px solid var(--card-line); border-radius: 1.1rem;
+         padding: 1.9rem 1.75rem; display: flex; flex-direction: column; gap: 1rem; }
+  .ask h3 { margin: 0; font-size: 1.12rem; letter-spacing: -0.015em; }
+  .ask ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+  .ask li { display: grid; grid-template-columns: auto 1fr; gap: 0.8rem; color: var(--text-soft); }
+  .ask li::before { content: ""; width: 0.55rem; height: 0.55rem; border-radius: 50%;
+                    background: var(--periwinkle); margin-top: 0.52rem; }
+
+  .faq { border-block: 1px solid var(--rule); display: flex; flex-direction: column; }
+  .faq details { border-bottom: 1px solid var(--rule); }
+  .faq details:last-child { border-bottom: 0; }
+  .faq summary { cursor: pointer; list-style: none; padding-block: 1.4rem;
+                 display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center;
+                 font-weight: 700; letter-spacing: -0.015em; font-size: 1.08rem; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: ""; width: 0.62rem; height: 0.62rem; border-radius: 0 100% 0 0;
+                        background: var(--periwinkle); transition: transform 150ms ease; }
+  .faq details[open] summary::after { transform: rotate(90deg); }
+  .faq summary:focus-visible { outline: 2px solid var(--periwinkle); outline-offset: 3px; }
+  .faq .answer { padding-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.85rem; }
+  .faq .answer p { color: var(--text-soft); max-width: 44rem; }
+  @media (prefers-reduced-motion: reduce) { .faq summary::after { transition: none; } }
+
   .next { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 2rem;
           padding-top: 2.5rem; border-top: 1px solid var(--rule); }
   .next p { max-width: 38rem; }
@@ -234,6 +267,12 @@
       <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
       <span class="wordmark"><span class="name">babahala</span><span class="sub">GROUP</span></span>
     </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#answers">What it answers</a>
+      <a href="#practice">The practice</a>
+      <a href="#method">How it runs</a>
+      <a href="#faq">Questions</a>
+    </nav>
     <a class="btn btn-sm" href="mailto:hello@babahala.com">Start a conversation</a>
   </div>
 </header>
@@ -278,7 +317,55 @@
   </div>
 </section>
 
-<section class="band-alt">
+<section id="answers">
+  <div class="wrap stack-wide">
+    <div class="stack">
+      <p class="label">What it answers</p>
+      <h2>The questions clients actually arrive with.</h2>
+      <p class="lead">A study is scoped to one decision. These are the shapes that decision usually takes.</p>
+    </div>
+    <div class="asks">
+      <div class="ask">
+        <h3>Launching something new</h3>
+        <ul>
+          <li>Who buys this, and what do they stop buying to make room for it?</li>
+          <li>Which occasion does it belong to, and what are people reaching for in that occasion now?</li>
+          <li>What has to be true on the shelf for someone to pick it up the first time?</li>
+        </ul>
+      </div>
+      <div class="ask">
+        <h3>Repositioning a brand</h3>
+        <ul>
+          <li>What do people believe about us that we never intended, and where did it come from?</li>
+          <li>Which part of our story do buyers repeat back, and which part do they skip?</li>
+          <li>Is there a space next to us we could take without losing the buyers we have?</li>
+        </ul>
+      </div>
+      <div class="ask">
+        <h3>Winning back buyers</h3>
+        <ul>
+          <li>What happened the last time somebody stopped buying us, in their words?</li>
+          <li>Did we lose them to a competitor, or to a different occasion entirely?</li>
+          <li>What would bring them back, and what would they have to see to believe it?</li>
+        </ul>
+      </div>
+      <div class="ask">
+        <h3>Pricing and value</h3>
+        <ul>
+          <li>Where is the line where people stop, and what are they comparing us to when they reach it?</li>
+          <li>Who pays more without thinking about it, and what makes them different?</li>
+          <li>If we raise the price, who leaves first and who never notices?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="next">
+      <p class="lead">If your question is not on this list, it is probably still the kind of thing this answers. Send it over and you will get a straight read.</p>
+      <a class="btn" href="mailto:hello@babahala.com">Send your question</a>
+    </div>
+  </div>
+</section>
+
+<section id="practice" class="band-alt">
   <div class="wrap bio">
     <div class="stack">
       <p class="label">The practice</p>
@@ -322,7 +409,7 @@
   </div>
 </section>
 
-<section class="band-alt">
+<section id="method" class="band-alt">
   <div class="wrap stack-wide">
     <div class="stack">
       <p class="label">How it runs this fast</p>
@@ -399,6 +486,72 @@
     <div class="next">
       <p class="lead">Each study is scoped to the decision in front of you, and it costs a good deal less than research at this depth used to. Ask, and you will have a number in the first reply.</p>
       <a class="btn" href="mailto:hello@babahala.com">Ask what it would cost</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="band-alt">
+  <div class="wrap stack-wide">
+    <div class="stack">
+      <p class="label">Questions</p>
+      <h2>The things people ask before they commission this.</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Is this real research, or is it AI making things up?</summary>
+        <div class="answer">
+          <p>Every respondent starts from a real, anonymized US Census household record, and every attitude they hold comes from a scan of current public evidence that carries its source and the date it was retrieved. What is synthetic is the conversation, not the evidence underneath it.</p>
+          <p>Nothing reaches your deck on the model's word. Quotes are pulled out of the transcript by turn number, so a quote cannot drift from what was said, and a claim that cannot be traced back to a turn is dropped before you see it.</p>
+        </div>
+      </details>
+      <details>
+        <summary>How is this different from asking ChatGPT what my customers think?</summary>
+        <div class="answer">
+          <p>A chatbot gives you the average of everything ever written about your category. It is confident, it is fluent, and it tells you what you already know.</p>
+          <p>This builds a panel of specific people who disagree with each other, screened to your actual buyers, then interviews each one for ninety minutes and reports where they split. The disagreement is the finding. An average cannot produce one.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Where do the respondents come from?</summary>
+        <div class="answer">
+          <p>From Census household records, drawn in proportion to how common people like them are among the buyers your screener describes. Your buyers, not the general population. A study on minivans is not full of single men.</p>
+          <p>Each person gets a life that fits their record: work, household, money, routines, what else they buy in the category and what they have never tried. You review the panel before anyone is interviewed.</p>
+        </div>
+      </details>
+      <details>
+        <summary>How do you know they are not all the same person underneath?</summary>
+        <div class="answer">
+          <p>Because a panel that agrees with itself is worthless, and it is the failure this method has to be built against.</p>
+          <p>Every study works out how buyers in that category genuinely divide, from that category's own evidence, and each respondent is built on a position, including what they do not believe. Somebody built to walk away over price does not drift into saying the cheap one is good enough. How far the panel agrees is measured and reported in the deliverable.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Can I see the transcripts?</summary>
+        <div class="answer">
+          <p>Yes. The full transcripts come with the study, along with the discussion guide, the screener and every panel profile. Any number in the deck can be followed back to the interviews behind it, and any quote to the moment it was said.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What can this not do?</summary>
+        <div class="answer">
+          <p>It will not give you a projectable number, and it is not the instrument for sizing a market or setting a forecast. Findings are directional, and they say so on the page.</p>
+          <p>Before a major spend, confirm the direction with a small live check. If your question needs a number rather than a reason, you will hear that in the first reply rather than after you have paid for a study.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What do you need from me, and how long does it take?</summary>
+        <div class="answer">
+          <p>A paragraph on the decision you are trying to make is enough to start. Four working days from approval to presentation, and you sit at two points in it: the discussion guide on day one and the panel on day two.</p>
+          <p>Between those, the work runs. You are not managing a fieldwork vendor or waiting on a recruiter.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What happens to my brief and my data?</summary>
+        <div class="answer">
+          <p>Your brief is used to run your study and nothing else. It is never used to train a model, and it is not pooled with anyone else's work.</p>
+          <p>Your name is not used as a reference without your say-so, and a case study only happens if you agree to it in writing.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
